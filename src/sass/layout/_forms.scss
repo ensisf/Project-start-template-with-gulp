@@ -1,0 +1,59 @@
+@import "../utils/_mixins.scss";
+
+input,
+select,
+button,
+textarea {
+    // border: none;
+    background: none;
+    font: inherit;
+    color: inherit;
+
+    &:focus{
+      outline-color: $theme-color;
+    }
+
+    .modal-form &{
+      background-color: #fff;
+    }
+}
+label {
+    cursor: pointer;
+    user-select: none;
+}
+//only vertical resize for textareas
+textarea {
+    resize: vertical;
+}
+//styles for disabled elements
+[disabled],
+button[disabled],
+html input[disabled] {
+    cursor: not-allowed;
+    opacity: 0.8;
+    user-select: none;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+textarea,
+select{
+  border: $form-border;
+  width: 100%;
+
+  @include placeholder{
+    color: inherit;
+  };
+  @include placeholder--focus;
+}
+
+input[type="submit"]{
+  border: none;
+  background: none;
+  transition: background-color 0.3s;
+
+  &:hover{
+
+  }
+}

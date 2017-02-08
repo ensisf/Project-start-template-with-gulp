@@ -1,0 +1,10 @@
+@import "../utils/_mixins.scss";
+
+.container{
+  $max-width: rem(1200);
+  $width: 90%;
+  display: flex;
+  margin: 0 auto;
+  max-width: $max-width;
+  width: $width;
+}
