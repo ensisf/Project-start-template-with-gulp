@@ -25,8 +25,16 @@ var gulp = require('gulp'),
     reload = browserSync.reload,
 		babel = require('gulp-babel'),
 
+		stylelint   = require('stylelint'),
+		postcss = require('gulp-postcss'),
+		reporter    = require('postcss-reporter'),
+		syntax_scss = require('postcss-scss'),
+
 		realFavicon = require ('gulp-real-favicon'),
-		fs = require('fs');
+		fs = require('fs'),
+
+		// Stylelint config rules
+	  stylelintConfig = require('./stylelint.config.js');
 
 
 var path = {
@@ -129,6 +137,36 @@ gulp.task('style:build', function () {
         .pipe(gulp.dest(path.build.css))
         .pipe(reload({stream: true}));
 });
+
+//==========Sass linting==========//
+
+gulp.task('scss-lint', function() {
+
+
+
+  var processors = [
+    stylelint(stylelintConfig),
+    reporter({
+      clearMessages: true,
+      throwError: true
+    })
+  ];
+
+  return gulp.src(
+      ['src/sass/**/*.scss',
+
+      // Ignore linting vendors
+      '!src/sass/vendors/**/*.scss',
+      '!src/sass/components/_sprite.scss',
+      '!src/sass/components/_svg_sprite.scss',
+      '!src/sass/templates/**/*.scss']
+    )
+		.pipe(plumber({errorHandler: onError}))
+    .pipe(postcss(processors, {syntax: syntax_scss}));
+});
+
+
+gulp.task('style', ['style:build', 'scss-lint']);
 
 //==========favicon==========//
 
@@ -299,7 +337,8 @@ gulp.task('fonts:build', function() {
 gulp.task('build', [
     'html:build',
     'js:build',
-    'style:build',
+		// 'scss-lint',
+    'style',
     'fonts:build',
     'image:build'
 ]);
@@ -311,7 +350,7 @@ gulp.task('watch', function(){
         gulp.start('html:build');
     });
     watch([path.watch.style], function(event, cb) {
-        gulp.start('style:build');
+        gulp.start('style');
     });
     watch([path.watch.js], function(event, cb) {
         gulp.start('js:build');
