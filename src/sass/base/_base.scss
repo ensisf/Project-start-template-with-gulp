@@ -1,16 +1,12 @@
-@import "../utils/_mixins.scss";
-
 *,
 *::after,
 *::before {
     box-sizing: border-box;
 }
 
-html{
-  height: 100%;
-}
 body,
 html {
+    height: 100%;
     margin: 0;
     padding: 0;
     font-size: $root-font-size + px;
@@ -24,38 +20,47 @@ html {
     @include font_smoothing;
 
 }
+
 a{
     text-decoration: none;
     transition: all 0.3s;
 }
+
 :link{
   color: inherit;
 }
+
 :visited{
   color: inherit;
 }
+
 img{
   max-width: 100%;
   height: auto;
 }
+
 svg{
   fill: currentColor;
 }
+
 ///////////////////////////////////////////////////////////////   FORMS
 input,
 select {
     border: none;
     background: none;
 }
+
 label {
     cursor: pointer;
     user-select: none;
 }
-//only vertical resize for textareas
+
+////////////////////////////only vertical resize for textareas
 textarea {
     resize: vertical;
 }
-//styles for disabled elements
+
+/////////////////////////styles for disabled elements
 [disabled] {
     cursor: not-allowed;
     opacity: 0.8;
@@ -65,17 +70,21 @@ textarea {
 .hidden{
   display: none;
 }
+
 ///////////////////////////for custom page Wordpress
 .custom-page{
+
   .container{
     flex-flow: column;
   }
 }
+
 .custom-page__heading{
   text-align: center;
   width: 100%;
   max-width: 100%;
 }
+
 .page__wrap{
   width: 100%;
   max-width: 100%;
