@@ -84,7 +84,6 @@ module.exports = {
       }
     ],
     'at-rule-no-vendor-prefix' : true,
-    'no-descending-specificity' : true,
     'comment-no-empty' : true,
     'selector-max-empty-lines' : 0,
     'max-empty-lines' : 1,

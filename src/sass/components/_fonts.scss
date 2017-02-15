@@ -7,9 +7,9 @@
   @font-face {
     font-family: $family;
     src: local($family),
-         url('fonts/#{$folder}/#{$font}/#{$font}.woff2') format('woff2'),
-         url('fonts/#{$folder}/#{$font}/#{$font}.ttf')  format('truetype'), /* Только если нужна поддержка старых Android, иначе закомментировать */
-         url('fonts/#{$folder}/#{$font}/#{$font}.woff') format('woff');
+         url('../fonts/#{$folder}/#{$font}/#{$font}.woff2') format('woff2'),
+         url('../fonts/#{$folder}/#{$font}/#{$font}.ttf')  format('truetype'), /* Только если нужна поддержка старых Android, иначе закомментировать */
+         url('../fonts/#{$folder}/#{$font}/#{$font}.woff') format('woff');
     font-weight: $weight;
     font-style: $style;
   }
