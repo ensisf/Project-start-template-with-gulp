@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
 
     console.log("ready!");
 
-    //globals lets
+    //globals
     let $window = $(window),
         $doc = $('html'),
         $body = $('body');

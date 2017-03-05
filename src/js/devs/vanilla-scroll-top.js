@@ -32,9 +32,9 @@
     let INTERVAL    = 20; // інтервал
     let distance    = window.pageYOffset; //Дистанція скроллу в момент кліку
     let timer       = setInterval(function () { // Таймер
-      let timePassed = Date.now() - start; // Скільки пройшло часу
-      window.scrollBy(0, -distance / (SCROLL_TIME / INTERVAL)); // Скролим
-      if (timePassed > SCROLL_TIME) clearInterval(timer); //Якщо пройшло більше часу ніж відведено на анімацію - чистим таймер
+    let timePassed = Date.now() - start; // Скільки пройшло часу
+    window.scrollBy(0, -distance / (SCROLL_TIME / INTERVAL)); // Скролим
+    if (timePassed > SCROLL_TIME) clearInterval(timer); //Якщо пройшло більше часу ніж відведено на анімацію - чистим таймер
     }, INTERVAL);
   }
 }());

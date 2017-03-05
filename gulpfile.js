@@ -115,7 +115,12 @@ gulp.task('js:build', function () {
 				.pipe(plumber({errorHandler: onError}))
 				.pipe(sourcemaps.init())
         .pipe(rigger())
-				.pipe(babel({presets: ['es2015']}))
+				.pipe(babel({
+					presets: [
+				    {"ignore": ["src/js/vendor/"]},
+				    "es2015"
+				  ]
+				}))
         .pipe(uglify())
 				.pipe(rename({suffix: '.min'}))
 				.pipe(sourcemaps.write('../maps'))
@@ -141,8 +146,6 @@ gulp.task('style:build', function () {
 //==========Sass linting==========//
 
 gulp.task('scss-lint', function() {
-
-
 
   var processors = [
     stylelint(stylelintConfig),
