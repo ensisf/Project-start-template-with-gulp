@@ -74,6 +74,7 @@ module.exports = {
           'content',
           'else',
           'include',
+          'extend',
           'function',
           'each',
           'return',
