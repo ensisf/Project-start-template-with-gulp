@@ -68,6 +68,9 @@ var path = {
 		clean: 'build/'
 };
 
+
+const isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'production';
+
 //browser-sync config
 var config = {
     server: {
@@ -376,3 +379,11 @@ gulp.task('webserver', function () {
 //==========default==========//
 
 gulp.task('default', ['build', 'webserver', 'watch']);
+
+
+
+//const isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'production';
+//Константа відповідає за зборку проекту для продакшена або дева
+//За замовчуванням - дев
+//Щоб запустити зборку продакшена - в консолі set NODE_ENV=production gulp style:build
+//Щоб вернути назад - в консолі set NODE_ENV=
